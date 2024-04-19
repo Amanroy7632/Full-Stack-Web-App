@@ -5,6 +5,7 @@ import Home from './components/home/Home'
 import Abc from './components/Abc'
 import {BrowserRouter} from "react-router-dom"
 import Masonary from './components/Masonary'
+import Head from './components/Head'
 function App() {
   const [count, setCount] = useState(0)
   // const [headPosition,setHeadPosition] = useState(false)
@@ -43,9 +44,8 @@ function App() {
     <BrowserRouter>    
       <Header headerPosition={headerPosition} isBackground={isBackground} setBackground={setBackground}/>
       <Home/>
-      <div>
-        
-      </div>
+      
+        {/* <Head/> */}
       {/* <Abc/> */}
       <Masonary/>
       </BrowserRouter>
