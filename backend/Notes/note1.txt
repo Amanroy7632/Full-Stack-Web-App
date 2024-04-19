@@ -1,0 +1,19 @@
+Morgan module: It is a third party module which is used to display the
+               requests to the console 
+               command to install: npm install morgan.
+To use it :
+Step 1: Install the morgan module 
+Step 2: Import the morgan module in app.js
+Step 3: Use it as middleware Ex: app.use(morgan("dev))
+Step 4 :And test the working by sending the request and its status
+
+Express validator : It is a third party module which is used to validate the data inputed or 
+                    comming from the client side.
+                    command:npm install express-validator
+jsonwebtoken : It is a third party module which is used to generate the tokens.
+              command: npm install jsonwebtoken
+nodemailer : It is a third party module which is used to send emails to the client.
+multer : It is a third party module which is used to handle the files ,photos,videos from client to server
+         we use it as middleware .
+         command: npm install multer
+         
