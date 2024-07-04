@@ -11,7 +11,7 @@ const addCategory=async(req,res,next)=>{
         res.status(400)
         throw new ApiError(400,"There is already a category with the specified title and description")
     }
-    const user=await User.findById(_id)
+    const user=await User.findById(_id).select("-password -role -isVerified -verificationCode -forgetPasswordCode")
     if (!user) {
         res.status(404)
         throw new ApiError(404,"User not found")
@@ -27,7 +27,7 @@ const updateCategory=async(req,res,next)=>{
   try {
     const {id}=req.params
     const {_id}=req.user
-    // console.log(id,_id);
+    console.log(id,_id);
     const {title,description}=req.body
     
     const user=await User.findById(_id)
@@ -54,6 +54,7 @@ const updateCategory=async(req,res,next)=>{
     res.status(200).send(new ApiResponse(200,category,"Category updated successfully"))
 
   } catch (error) {
+    console.log(error.message);
     next(error)
   }
 }
@@ -130,7 +131,7 @@ const getSingleCategory=async(req,res,next)=>{
             res.status(400)
             throw new ApiError(400,"Category id is required")
         }
-        const category=await Category.findById(id)
+        const category=await Category.findById(id).select("-createdAt -updatedAt -updatedBy -__v")
         if (!category) {
             res.status(404)
             .send(new ApiResponse(404,category,"Category not found"))

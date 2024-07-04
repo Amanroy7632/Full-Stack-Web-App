@@ -29,7 +29,11 @@ const userSchema = mongoose.Schema({
  },
  forgetPasswordCode:{
    type:String
+ },
+ refreshToken:{
+   type:String
  }
 },{timestamps:true})
 const User =mongoose.model("User",userSchema)
+
 module.exports = User

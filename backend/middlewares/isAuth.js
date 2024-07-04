@@ -1,5 +1,5 @@
-const ApiError = require("../utils/ApiError");
-const ApiResponse = require("../utils/ApiResponse");
+const {ApiError} = require("../utils/index.js");
+
 const jwt=require("jsonwebtoken")
 // const {jwtSecret}=require("../constants/keys.js")
 const isAuth=async(req,res,next)=>{

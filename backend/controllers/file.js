@@ -1,6 +1,5 @@
-const ApiError = require("../utils/ApiError");
-const ApiResponse = require("../utils/ApiResponse")
-
+const {ApiError,ApiResponse} = require("../utils/index.js");
+const { uploadOnCloudinary } = require("../utils/cloudinary");
 const uploadFile=async (req, res, next) =>{
   try {
     const {file}=req 
@@ -9,7 +8,11 @@ const uploadFile=async (req, res, next) =>{
         res.status(400)
         throw new ApiError(400,"File is not selected")
     }
-    res.status(200).send(new ApiResponse(200,{},"Filen uploaded successfully"))
+    const response =await uploadOnCloudinary(file)
+    if (!response) {
+      throw new ApiError(400,"File is required")
+    }
+    res.status(200).send(new ApiResponse(200,response,"Filen uploaded successfully"))
   } catch (error) {
     next(error)
   }

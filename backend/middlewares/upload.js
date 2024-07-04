@@ -1,7 +1,6 @@
 const multer = require("multer")
 const path=require("path");
-const generateCode = require("../utils/generateCode");
-const ApiError = require("../utils/ApiError");
+const {generateCode,ApiError} =require("../utils/index.js")
 const storage=multer.diskStorage({
     destination:(req,file,callback)=>{
         callback(null,"./uploads")

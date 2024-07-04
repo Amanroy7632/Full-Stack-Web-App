@@ -1,4 +1,4 @@
-const ApiError = require("../utils/ApiError")
+const {ApiError} = require("../utils/index.js")
 
 const isAdmin=async(req,res,next)=>{
   try {

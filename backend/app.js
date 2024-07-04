@@ -1,7 +1,7 @@
 const express =require("express")
 const bodyParser=require("body-parser")
 const {errorHandler}=require("./middlewares/index.js")
-const {authRoute,categoryRoute,fileRoute} =require("./routes/index.js")
+const {authRoute,categoryRoute,fileRoute,postRoute, likeRoute} =require("./routes/index.js")
 // const cors=require("cors")
 const dotenv=require("dotenv")
 // consfigure the dotenv file 
@@ -17,6 +17,8 @@ app.use(bodyParser.urlencoded({limit:"500mb",extended:true}))
 app.use("/api/v1/auth",authRoute)
 app.use("/api/v1/category",categoryRoute)
 app.use("/api/v1/file",fileRoute)
+app.use("/api/v1/post",postRoute)
+app.use("/api/v1/like",likeRoute)
 // if no routes matches then handle using *
 const notFound =require("./controllers/notFound.js")
 app.use("*",notFound)
